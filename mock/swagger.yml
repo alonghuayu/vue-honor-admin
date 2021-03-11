@@ -19,7 +19,63 @@ tags:
     description: Transactions data related api.
   - name: users
     description: Users related api.
+  - name: players
+    description: players related api.
 paths:
+  /players:
+    get: 
+      tags:
+        - players
+      summary: Get Players List
+      description: Return a list of players.
+      operationId: getPlayers
+      parameters: 
+        - name: acountname
+          in: query
+          description: 账户用于查询用户
+          schema: 
+            type: string
+        - name: nickname
+          in: query
+          description: 昵称用于查询用户
+          schema: 
+            type: string
+        - name: page
+          in: query 
+          description: ⻚码 
+          schema: 
+            type: integer
+            format: int32
+            minimum: 1
+        - name: limit
+          in: query
+          description:  每⻚数量
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+      responses: 
+        200: 
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    format: int32
+                  data:
+                    type: object
+                    properties: 
+                      total:
+                        type: integer
+                        format: int32
+                      items:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Player'
   /articles:
     get:
       tags:
