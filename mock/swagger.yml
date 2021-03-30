@@ -1,5 +1,5 @@
-openapi: 3.0.0
-info:
+openapi: 3.0.0 # 版本号
+info: # 描述信息
   description: Mock API for vue-typescript-admin-template.
   version: 1.0.0
   title: Mock API
@@ -8,9 +8,9 @@ info:
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
-servers:
+servers: # 接口服务器地址，也用于路由声明前缀
   - url: /mock-api/v1
-tags:
+tags: # 接口文档中的标签名称
   - name: articles
     description: Articles data related api.
   - name: roles
@@ -21,7 +21,7 @@ tags:
     description: Users related api.
   - name: players
     description: players related api.
-paths:
+paths: # 接口路劲和定义
   /players:
     get: 
       tags:
@@ -766,7 +766,7 @@ paths:
                         $ref: '#/components/schemas/User'
         401:
           $ref: '#/components/responses/Unauthorized'
-components:
+components: # 可复用组件，数据结构，响应定义，安全认证定义等
   securitySchemes:
     AccessTokenAuth:
       type: apiKey
