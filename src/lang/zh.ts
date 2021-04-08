@@ -1,5 +1,7 @@
 export default {
   route: {
+    playerMgt: '玩家管理',
+    playerList: '玩家列表',
     dashboard: '首页',
     documentation: '文档',
     guide: '引导页',
@@ -172,5 +174,9 @@ export default {
     showSidebarLogo: '显示侧边栏 Logo',
     fixedHeader: '固定 Header',
     sidebarTextTheme: '侧边栏文字主题色'
+  },
+  player: {
+    accountname: '请输入账户名',
+    btnFilter: '查询'
   }
 }

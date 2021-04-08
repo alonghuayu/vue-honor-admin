@@ -33,7 +33,7 @@ function genWantoplay() {
 
 export const getPlayers = (req: Request, res: Response) => {
     // 获取分页，关键词等参数
-    const { accountname, page = 1, limit = 10 }:any = req.query
+    const { accountname, page = 1, limit = 10 }: any = req.query
 
     let mockList = playerList.filter(item => {
         if (accountname && item.accountname.indexOf(accountname) < 0) {
@@ -50,8 +50,65 @@ export const getPlayers = (req: Request, res: Response) => {
     res.json({
         code: 20000,
         data: {
-            total: pageList.length,
+            total: mockList.length,
             players: pageList
         }
     })
 }
+
+
+export const getPlayer = (req: Request, res: Response) => {
+    const { id } = req.params
+    for (const player of playerList) {
+        if (player.id.toString() === id) {
+            return res.json({
+                code: 20000,
+                data: {
+                    player
+                }
+            })
+        }
+    }
+    res.json({
+        code: 70001,
+        message: '没有找到相应的玩家信息'
+    })
+}
+
+export const createPlayer = (req: Request, res: Response) => {
+    const { player } = req.body
+
+    res.json({
+        code: 20000,
+        data: {
+            player
+        }
+    })
+}
+
+export const updatePlayer = (req: Request, res: Response) => {
+    const { id } = req.params
+    const { player } = req.body
+    for (const v of playerList) {
+        if (v.id.toString() === id) {
+            return res.json({
+                code: 20000,
+                data: {
+                    player
+                }
+            })
+        }
+    }
+    return res.json({
+        code: 70001,
+        message: 'player not found'
+    })
+}
+
+
+export const deletePlayer = (req: Request, res: Response) => {
+    return res.json({
+        code: 20000,
+    })
+}
+
