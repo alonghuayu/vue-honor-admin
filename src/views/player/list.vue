@@ -9,6 +9,8 @@
         @keyup.enter.native="handleFilter"
       ></el-input>
       <el-button type="primary" icon="el-icon-search" @click="handleFilter">{{$t('player.btnFilter')}}</el-button>
+      <!-- 新增按钮 -->
+      <el-button type="primary" icon="el-icon-search" @click="handleCreate">{{$t('player.btnCreate')}}</el-button>
     </div>
     <!-- 列表 -->
     <el-table
@@ -90,6 +92,11 @@ export default class list extends Vue {
     handleFilter() {
       this.listQuery.page = 1
       this.getList()
+    }
+
+    // 新增玩家
+    handleCreate() {
+      this.$router.push('/players/create')
     }
 }
 </script>

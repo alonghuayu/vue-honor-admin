@@ -16,6 +16,14 @@ export const playerRoutes: RouteConfig = {
                 title: 'playerList', 
                 icon: 'list'
             }
+        },
+        {
+            path: 'create',
+            component:()=>import('@/views/player/create.vue'),
+            meta: {
+                title: 'createPlayer', 
+                icon: 'edit'
+            }
         }
     ]
 }
