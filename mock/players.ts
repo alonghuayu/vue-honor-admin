@@ -78,7 +78,7 @@ export const getPlayer = (req: Request, res: Response) => {
 export const createPlayer = (req: Request, res: Response) => {
     const { player } = req.body
 
-    res.json({
+    return res.json({
         code: 20000,
         data: {
             player

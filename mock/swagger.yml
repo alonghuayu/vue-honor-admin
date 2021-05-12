@@ -82,9 +82,12 @@ paths: # 接口路劲和定义
       summary: create Player
       description: create a players.
       operationId: createPlayers
+      security:
+        - AccessTokenAuth: []
       parameters: 
-        - name: player
+        - name: article
           in: query
+          required: true
           description: 新建玩家数据
           schema: 
             $ref: '#/components/schemas/Player'
