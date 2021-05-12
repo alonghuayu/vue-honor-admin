@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- 创建一个player-detail组件，更新时可复用 -->
         <player-detail :is-edit="false"></player-detail>
     </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
   <div>
     <el-form ref="form" :model="playerForm">
-      <el-form-item pops="accountname" label="账户名">
+      <el-form-item prop="accountname" label="账户名">
         <el-input v-model="playerForm.accountname"></el-input>
       </el-form-item>
-      <el-form-item pops="nickname" label="昵称">
+      <el-form-item prop="nickname" label="昵称">
         <el-input v-model="playerForm.nickname"></el-input>
       </el-form-item>
       <el-form-item>
